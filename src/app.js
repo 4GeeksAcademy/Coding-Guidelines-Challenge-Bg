@@ -1,11 +1,31 @@
-/* eslint-disable */
-import "bootstrap";
-import "./style.css";
+const greeting = "Hello World";
+const pronouns = ["The", "our"];
+const adjectives = ["great", "big"];
+const nouns = ["Jogger", "racoon"];
 
-import "./assets/img/rigo-baby.jpg";
-import "./assets/img/4geeks.ico";
+function printGreeting() {
+  console.log(greeting);
+}
 
-window.onload = function() {
-  //write your code here
-  console.log("Hello Rigo from the console!");
-};
+function generateDomain(pronoun, adjective, noun) {
+  return pronoun + adjective + noun + ".com";
+}
+
+function generateDomains() {
+  const domains = [];
+
+  pronouns.forEach(pronoun => {
+    adjectives.forEach(adjective => {
+      nouns.forEach(noun => {
+        domains.push(generateDomain(pronoun, adjective, noun));
+      });
+    });
+  });
+
+  return domains;
+}
+
+printGreeting();
+
+const domainList = generateDomains();
+console.log(domainList);
